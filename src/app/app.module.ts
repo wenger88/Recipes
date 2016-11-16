@@ -6,11 +6,13 @@ import { HttpModule } from '@angular/http';
 import { routing, appRoutingProviders } from './app.routing';
 
 import { AppComponent }   from './app.component';
-import { PuppiesComponent } from './puppies';
-import { OttersComponent } from './otters';
-import { KittensComponent } from './kittens';
 
 import { SharedModule } from './shared';
+import {RecipesComponent} from "./recipes/recipes.component";
+import {RecipeListComponent} from "./recipes/recipe-list/recipe-list.component";
+import {RecipeItemComponent} from "./recipes/recipe-list/recipe-item.component";
+import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.component";
+import {DataService} from "./core/services/data.services";
 
 @NgModule({
 	imports: [
@@ -22,12 +24,14 @@ import { SharedModule } from './shared';
 	],
 	declarations: [
 		AppComponent,
-		PuppiesComponent,
-		OttersComponent,
-		KittensComponent
+		RecipesComponent,
+        RecipeListComponent,
+        RecipeItemComponent,
+        RecipeDetailComponent
 	],
 	providers: [
-		appRoutingProviders
+		appRoutingProviders,
+		DataService
 	], 
 	exports: [],
 	bootstrap: [AppComponent],
