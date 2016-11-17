@@ -5,6 +5,7 @@
 import {Component, EventEmitter, Output, OnInit} from "@angular/core";
 import {IRecipe} from "../interfaces";
 import {DataService} from "../../core/services/data.services";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
     selector: 'recipe-list',
@@ -16,7 +17,7 @@ export class RecipeListComponent implements OnInit{
 
     recipes: IRecipe[];
 
-    constructor(private dataService: DataService){}
+    constructor(private dataService: DataService, private router: Router){}
 
     ngOnInit(){
         this.dataService.GetAll()

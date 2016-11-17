@@ -15,6 +15,7 @@ import {IRecipe} from "../interfaces";
 export class RecipeItemComponent{
 
     @Input() recipe: IRecipe;
+    @Input() recipeId: number;
 
     constructor(){}
 

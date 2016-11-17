@@ -1,25 +1,70 @@
-<div class="row">
-    <div class="col-xs-12">
-        <img src="{{selectedRecipe?.imagePath}}" alt="" class="img-responsive">
+<div *ngIf="selectedRecipe">
+    <div class="row">
+        <div class="top-action clearfix">
+            <button class="btn btn-warning pull-left customButton" (click)="onEdit()">Edit</button>
+            <button class="btn btn-danger  pull-right customButton" (click)="onDelete()">Delete</button>
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-        <h1>{{selectedRecipe?.name}}</h1>
+    <div class="row recipe-general-info">
+        <div class="col-sm-6">
+            <h3>{{selectedRecipe?.name}}</h3>
+            <p>{{selectedRecipe?.description}}</p>
+        </div>
+
+        <div class="background col-sm-6" [ngStyle]="{'background': 'url(' + selectedRecipe?.imageUrl + ')',
+                'background-position': 'center', 'background-size': 'cover'}">
+            <span class="btn btn-success customButtonLike">Like!</span>
+        </div>
     </div>
-    <div class="col-xs-12">
-        <button class="btn btn-success">To Shopping List</button>
-        <button class="btn btn-primary">Edit</button>
-        <button class="btn btn-danger">Delete</button>
+    <div class="row">
+        <div class="col-xs-12">
+
+
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-        <p>{{selectedRecipe?.description}}</p>
-    </div>
-</div>
-<div class="row">
-    <div class="col-xs-12">
-        Ingredients
+    <div class="row">
+        <div class="col-sm-6 no-padding">
+            <div class="top">
+                Ingredients
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" *ngFor="let ingredient of selectedRecipe.ingredients">
+                    <div class="row">
+                        <div class="col-xs-2">
+                            <span class="item-index">{{ingredient.id}}</span>
+                        </div>
+                        <div class="col-xs-10">
+                            {{ingredient.name}}
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="col-sm-6 no-padding">
+            <div>
+                <div class="top">
+                    Directions
+                </div>
+                <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-xs-4">Prep: {{selectedRecipe.prepTime}} m</div>
+                            <div class="col-xs-4">Cook: {{selectedRecipe.cookingTime}} m</div>
+                            <div class="col-xs-4">Servings: {{selectedRecipe.servings}}</div>
+                        </div>
+                    </li>
+                    <li class="list-group-item" *ngFor="let direction of selectedRecipe.directions">
+                        <div class="row">
+                            <div class="col-xs-2">
+                                <span class="item-index">{{direction.id}}</span>
+                            </div>
+                            <div class="col-xs-10">
+                                {{direction.name}}
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>

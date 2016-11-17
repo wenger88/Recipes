@@ -7,6 +7,7 @@ import {Injectable} from "@angular/core";
 import {IRecipe} from "../../recipes/interfaces";
 import {Http, Response, Headers} from "@angular/http";
 import {Observable} from "rxjs";
+import 'rxjs/Rx';
 
 @Injectable()
 export class DataService{
@@ -24,10 +25,15 @@ export class DataService{
     }
 
     public GetSingle = (id: number): Observable<IRecipe> => {
-        return this._http.get(this.recipesUrl + id)
-            .map((response: Response) => <IRecipe>response.json())
+        return this._http.get(this.recipesUrl + '/' + id)
+            .map((response: Response) => response.json())
             .catch(this.handleError);
     }
+
+    /*GetSingle(id: number): Observable<IRecipe>{
+        return this._http.get(this.recipesUrl + '/'+ id)
+            .map((res: Response) => res.json())
+    }*/
 
     public Add = (itemName: string): Observable<IRecipe> => {
         let toAdd = JSON.stringify({ ItemName: itemName });
@@ -44,7 +50,7 @@ export class DataService{
     }
 
     public Delete = (id: number): Observable<Response> => {
-        return this._http.delete(this.recipesUrl + id)
+        return this._http.delete(this.recipesUrl + '/' + id)
             .catch(this.handleError);
     }
 

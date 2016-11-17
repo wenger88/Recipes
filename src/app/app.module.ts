@@ -3,7 +3,7 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
-import { routing, appRoutingProviders } from './app.routing';
+import { routing} from './app.routing';
 
 import { AppComponent }   from './app.component';
 
@@ -13,6 +13,9 @@ import {RecipeListComponent} from "./recipes/recipe-list/recipe-list.component";
 import {RecipeItemComponent} from "./recipes/recipe-list/recipe-item.component";
 import {RecipeDetailComponent} from "./recipes/recipe-detail/recipe-detail.component";
 import {DataService} from "./core/services/data.services";
+import {RecipeStartComponent} from "./recipes/recipe-start.component";
+import {RecipeEditComponent} from "./recipes/recipe-edit/recipe-edit.component";
+import {RecipeCreateComponent} from "./recipes/recipe-create/recipe-create.component";
 
 @NgModule({
 	imports: [
@@ -20,17 +23,20 @@ import {DataService} from "./core/services/data.services";
 		HttpModule,
 		BrowserModule,		
 		SharedModule,
-		routing
+        routing
 	],
 	declarations: [
 		AppComponent,
 		RecipesComponent,
         RecipeListComponent,
         RecipeItemComponent,
-        RecipeDetailComponent
+        RecipeDetailComponent,
+        RecipeStartComponent,
+        RecipeEditComponent,
+        RecipeCreateComponent
+
 	],
 	providers: [
-		appRoutingProviders,
 		DataService
 	], 
 	exports: [],
