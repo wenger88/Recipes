@@ -11,6 +11,7 @@ export const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes);
 import {Routes, RouterModule} from "@angular/router";
 import {RecipesComponent} from "./recipes/recipes.component";
 import {RECIPE_ROUTES} from "./recipes/recipes.routes";
+import {RecipeCreateComponent} from "./recipes/recipe-create/recipe-create.component";
 
 const APP_ROUTES_PROVIDERS: Routes = [
     {
@@ -22,6 +23,10 @@ const APP_ROUTES_PROVIDERS: Routes = [
         path: 'recipes',
         component: RecipesComponent,
         children: RECIPE_ROUTES
+    },
+    {
+        path: 'new',
+        component: RecipeCreateComponent
     }
 
 ];

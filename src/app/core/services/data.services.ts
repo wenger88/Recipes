@@ -43,8 +43,8 @@ export class DataService{
             .catch(this.handleError);
     }
 
-    public Update = (id: number, itemToUpdate: IRecipe): Observable<IRecipe> => {
-        return this._http.put(this.recipesUrl + id, JSON.stringify(itemToUpdate), { headers: this.headers })
+    public Update = (itemToUpdate: IRecipe): Observable<boolean> => {
+        return this._http.put(this.recipesUrl + '/' + itemToUpdate.id, itemToUpdate)
             .map((response: Response) => <IRecipe>response.json())
             .catch(this.handleError);
     }

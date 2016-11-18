@@ -21,7 +21,6 @@ export class RecipeCreateComponent implements OnInit{
     constructor(){}
 
     ngOnInit(){
-        this.recipe = null;
     }
 
 }
