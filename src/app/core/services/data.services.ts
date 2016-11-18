@@ -5,7 +5,7 @@
 
 import {Injectable} from "@angular/core";
 import {IRecipe} from "../../recipes/interfaces";
-import {Http, Response, Headers} from "@angular/http";
+import {Http, Response, Headers, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs";
 import 'rxjs/Rx';
 
@@ -14,7 +14,6 @@ export class DataService{
 
     recipesUrl: string = 'http://localhost:3000/recipes';
     recipes: IRecipe[];
-    headers: Headers;
 
     constructor(private _http: Http){}
 
@@ -35,10 +34,12 @@ export class DataService{
             .map((res: Response) => res.json())
     }*/
 
-    public Add = (itemName: string): Observable<IRecipe> => {
-        let toAdd = JSON.stringify({ ItemName: itemName });
+    public Add = (body: Object): Observable<IRecipe> => {
+        let toAdd = JSON.stringify(body);
+        let headers = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
+        let options = new RequestOptions({ headers: headers }); // Create a request option
 
-        return this._http.post(this.recipesUrl, toAdd, { headers: this.headers })
+        return this._http.post(this.recipesUrl, toAdd, options)
             .map((response: Response) => <IRecipe>response.json())
             .catch(this.handleError);
     }
