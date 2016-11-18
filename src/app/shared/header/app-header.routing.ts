@@ -1,26 +1,26 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-
-import { PuppiesComponent } from '../../puppies';
-import { OttersComponent } from '../../otters';
-import { KittensComponent } from '../../kittens';
+import {RecipesComponent} from "../../recipes/recipes.component";
+import {RecipeDetailComponent} from "../../recipes/recipe-detail/recipe-detail.component";
 
 const appHeaderRoutes: Routes = [
 	{
-		path: 'puppies',
-		component: PuppiesComponent
+		path: 'recipes',
+		component: RecipesComponent,
+        children: [
+            {
+                path: ':id',
+                component: RecipeDetailComponent
+            }
+        ]
 	},
-	{
-		path: 'otters',
-		component: OttersComponent
-	},
-	{
-		path: 'kittens',
-		component: KittensComponent
-	},
+/*	{
+		path: ':id',
+		component: RecipeDetailComponent
+	},*/
 	{
 		path: '',
-		redirectTo: '/puppies',
+		redirectTo: '/recipes',
 		pathMatch: 'full'
 	}
 ];

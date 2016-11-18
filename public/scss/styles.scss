@@ -1,4 +1,7 @@
+$bootstrap-sass-asset-helper: true;
+@import '~bootstrap-sass/assets/stylesheets/bootstrap';
 @import 'globals';
+
 
 html {
 	box-sizing: border-box;
@@ -15,7 +18,9 @@ body {
 		color: $appGrey;
 		margin: 0px;
 		padding: 0px;
-
+		font-family: "Segoe UI";
+        line-height: 1.5;
+        font-size: 14px;
 		.main-content {
 			margin: 30px $sideSpace;
 
@@ -24,4 +29,19 @@ body {
 					text-transform: capitalize;				
 			}
 		}
+}
+
+.top-action{
+  background: #ddd;
+  .customButton{
+    /*background: #a2a2a2;*/
+    color: #efefef;
+    border: none;
+    border-radius: 0;
+    font-weight: bold;
+  }
+}
+
+.list-group-item:first-child{
+ border-radius: 0;
 }

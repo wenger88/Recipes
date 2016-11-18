@@ -1,0 +1,40 @@
+.background{
+  height: 300px;
+}
+.recipe-general-info{
+  background: #efefef;
+}
+
+.no-padding{
+  padding: 0;
+}
+
+.top{
+  background: #ddd;
+  padding: 10px;
+  font-weight: bold;
+  color: #a2a2a2;
+  font-size: 18px;
+}
+.item-index{
+  display: inline-block;
+  position: relative;
+  font-size: 16px;
+  background: #efefef;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #ccc;
+  border-radius: 100%;
+  text-align: center;
+  line-height: 36px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.customButtonLike{
+  border: none;
+  border-radius: 0;
+  position: absolute;
+  bottom:0;
+  left: 0;
+}
