@@ -1,0 +1,30 @@
+{
+  "recipes": [
+    {
+      "id": 1,
+      "name": "ted",
+      "description": "james",
+      "imageUrl": "",
+      "likes": 0,
+      "cookingTime": 25,
+      "prepTime": 30,
+      "servings": 4,
+      "ingredients": [
+        {
+          "id": 0,
+          "name": "asdasdasd"
+        },
+        {
+          "id": 1,
+          "name": "asdasdasdasd"
+        }
+      ],
+      "directions": [
+        {
+          "id":0,
+          "name": "asdasdasdasdasd"
+        }
+      ]
+    }
+  ]
+}
